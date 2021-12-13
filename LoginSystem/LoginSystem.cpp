@@ -1,6 +1,3 @@
-//THANKS TO HAZARDEDIT
-//TUTORIAL https://www.youtube.com/watch?v=I_aWPGCaaFA
-
 #include <iostream>
 #include <fstream>
 #include <string>
