@@ -16,7 +16,6 @@ bool IsLoggedIn()
     std::cin >> password;
 
     //CHANGE THE LOCATION PATH AND DATA FOLDER NAME!!!
-
     std::ifstream read("D:\LoginSystemData\\" + username + ".txt"); //Read login-file
     getline(read, chckUn); //Read login
     getline(read, chckPw); //Read password
@@ -46,18 +45,30 @@ int main()
         std::cout << "Enter password: ";
         std::cin >> password;
 
-        std::ofstream file; //Init file var
-
         //CHANGE THE LOCATION PATH AND DATA FOLDER NAME!!!
+        std::fstream chckFile("D:\LoginSystemData\\" + username + ".txt", std::ios::in); //init check file var
 
-        file.open("D:\LoginSystemData\\" + username + ".txt"); //Open file
+        if (chckFile.is_open()) //File with that name was found!
+        {
+            std::cout << "Username is already exists!";
+            return 0;
+        }
 
-        file << username << std::endl << password; //Write data in file
-        file.close();   //Close file
+        else //File with that name was NOT found! Create new file!
+        {
+            std::ofstream file; //Init file var
 
-        std::cout << "Account " << username << " create!\n\n";
+            //CHANGE THE LOCATION PATH AND DATA FOLDER NAME!!!
+            file.open("D:\LoginSystemData\\" + username + ".txt"); //Open file
 
-        main();
+            file << username << std::endl << password; //Write data in file
+            file.close();   //Close file
+
+            std::cout << "Account " << username << " create!\n\n";
+
+            main();
+        }
+
     }
 
     else if (choice == 2) //LOGIN SYSTEM
@@ -95,7 +106,6 @@ int main()
             case 1: //Delete
 
                 //CHANGE THE LOCATION PATH AND DATA FOLDER NAME!!!
-
                 remove(("D:\LoginSystemData\\" + username + ".txt").c_str()); //Deleting file from folder
                 std::cout << "\nAccount " << username << " was deleted!";
                 return 0;
