@@ -10,7 +10,7 @@ bool IsLoggedIn()
 {
     std::string username, password, chckUn, chckPw; //String vars
 
-    std::cout << "Enter login: ";
+    std::cout << "\nEnter login: ";
     std::cin >> username;
     std::cout << "Enter password: ";
     std::cin >> password;
@@ -71,19 +71,19 @@ int main()
 
     }
 
-    else if (choice == 2) //LOGIN SYSTEM
+    if (choice == 2) //LOGIN SYSTEM
     {
         bool status = IsLoggedIn(); //Check True/False
 
         if (!status) //If FALSE
         {
-            std::cout << "\nWrong login or password!" << std::endl;
+            std::cout << "\nWrong login or password!";
             system("PAUSE");
             return 0;
         }
         else //If TRUE
         {
-            std::cout << "\nLogin was successfully!" << std::endl;
+            std::cout << "\nLogin was successfully!";
             system("PAUSE");
             return 1;
         }
