@@ -1,6 +1,3 @@
-//THANKS TO HAZARDEDIT
-//TUTORIAL https://www.youtube.com/watch?v=I_aWPGCaaFA
-
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -8,7 +5,7 @@
 
 bool IsLoggedIn()
 {
-    std::string username, password, chckUn, chckPw; //String vars
+    std::string username, password, chckUn, chckPw;
 
     std::cout << "\nEnter login: ";
     std::cin >> username;
@@ -83,7 +80,7 @@ int main()
         }
         else //If TRUE
         {
-            std::cout << "\nLogin was successfully!";
+            std::cout << "\nLogin was successfully!\n";
             system("PAUSE");
             return 1;
         }
@@ -104,7 +101,6 @@ int main()
         switch (choice)
         {
             case 1: //Delete
-
                 //CHANGE THE LOCATION PATH AND DATA FOLDER NAME!!!
                 remove(("D:\LoginSystemData\\" + username + ".txt").c_str()); //Deleting file from folder
                 std::cout << "\nAccount " << username << " was deleted!";
